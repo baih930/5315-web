@@ -8,6 +8,28 @@
   <script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
   <!-- link datatables css -->
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
+  <script type="text/javascript">
+    $(document).ready(function(){
+       var t = $('#chart').DataTable();
+       $.ajax({
+            type: "GET",
+            url: "cd_catalog.xml", 
+            dataType: "xml",
+            success: function(xml) {  
+             $(xml).find('CD').each(function(){  
+              t.row.add( [
+                $(this).find('ARTIST').text(),
+                $(this).find('TITLE').text(),
+                $(this).find('YEAR').text(),
+                $(this).find('PRICE').text(),
+                $(this).find('COMPANY').text(),
+                $(this).find('COUNTRY').text()
+              ] ).draw( false );
+             });
+            }
+        });
+      });
+  </script>
 </head>
 
 <body>
@@ -33,24 +55,7 @@
             <th>Country</th>
         </tr>
     </tfoot>
-    <tbody align="center">
-    	<tr>
-        	<td>Pablo Picasso</td>
-            <td>Three Musicians</td>
-            <td>1921</td>
-            <td>$1000,000,000</td>
-            <td>ABC Museum</td>
-            <td>Spain</td>
-        </tr>
-    	<tr>
-        	<td>Van Gogh</td>
-            <td>The Starry Night</td>
-            <td>1889</td>
-            <td>$10,000,000,000</td>
-            <td>Wallgreens Museum</td>
-            <td>Dutch</td>
-        </tr>
-    </tbody>
+
   </table>
 </body>
 </html>

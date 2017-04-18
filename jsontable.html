@@ -1,4 +1,3 @@
-<!-- Source: http://www.kodingmadesimple.com/2015/07/convert-json-data-html-table-jquery-datatables-plugin.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,26 +46,5 @@
   </tr>
         </tbody>
     </table>
-    
-    <!-- load jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <!-- load datatables js library -->
-    <script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
-    
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $('#empTable').dataTable({
-            "ajax": "empdata.js",
-            "columns": [
-                {"data": "name"},
-                {"data": "designation"},
-                {"data": "office"},
-                {"data": "extension"},
-                {"data": "joining_date"},
-                {"data": "salary"}
-            ]
-        });   
-    });
-    </script>
 </body>
 </html>
